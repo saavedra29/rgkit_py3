@@ -15,7 +15,7 @@ setup(
     description='Game Engine for Robot Game',
     maintainer='Aristeidis Tomaras',
     maintainer_email='arisgold29@gmail.com',
-    url='https://github.com/saavedra29/rgkit',
+    url='https://github.com/saavedra29/rgkit_py3',
     packages=find_packages(),
     package_data={'rgkit': ['bots/*.py', 'maps/*.py']},
     license='Unlicense',
