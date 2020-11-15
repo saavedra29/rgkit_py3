@@ -13,13 +13,13 @@ run:
 
 ::
 
-    pip install rgkit_py3
+    pip install rgkit-py3
 
 Or if you want the development version:
 
 ::
 
-    pip install git+https://github.com/saavedra29/rgkit.git
+    pip install git+https://github.com/saavedra29/rgkit_py3.git
 
 **Note:** *This will install rgkit system-wide. It is recommended to use*
 `virtualenv <http://www.virtualenv.org/en/latest/>`__
@@ -35,7 +35,7 @@ Installing with ``virtualenv`` requires the following steps:
     cd my_robot
     virtualenv env
     source env/bin/activate
-    pip install rgkit
+    pip install rgkit-py3
 
 **setup.py**
 
@@ -102,7 +102,7 @@ command:
 Developing with source
 -----------------------------------
 
-``rgkit`` is packaged as a module, but you *can* just checkout the
+``rgkit_py3`` is packaged as a module, but you *can* just checkout the
 repository and import/run the source scripts.
 
 ::
@@ -145,7 +145,7 @@ own robots. The package can be imported like any other module:
 Other Tools
 --------------------
 
-Here are some excellent tools made by fellow players!
+Here are some excellent tools made by fellow players! (working with python2 for now)
 
 - `Open Source Bots <https://github.com/mpeterv/robotgame-bots>`__
 - `Simulate Situations <https://github.com/mpeterv/rgsimulator>`__
