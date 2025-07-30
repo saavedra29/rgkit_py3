@@ -7,7 +7,7 @@ import ast
 import copy
 from importlib import import_module
 import inspect
-import pkg_resources
+import importlib.resources as resources
 import random
 import os
 import sys
@@ -25,6 +25,7 @@ except ImportError:
 from rgkit.settings import settings as default_settings
 from rgkit import game
 from rgkit.game import Player
+import rgkit
 
 
 class Options(object):
@@ -132,9 +133,9 @@ class Runner(object):
         try:
             return game.Player(file_name=file_name)
         except IOError as msg:
-            if pkg_resources.resource_exists('rgkit', file_name):
-                bot_filename = pkg_resources.resource_filename('rgkit',
-                                                               file_name)
+            resource = resources.file(rgkit).joinpath(file_name)
+            if resource.is_file():
+                bot_filename = str(resource)
                 return game.Player(file_name=bot_filename)
             raise IOError(msg)
 
@@ -272,7 +273,7 @@ def get_arg_parser():
                         help="File containing first robot class definition.")
     parser.add_argument("opponents", nargs="+",
                         help="File(s) containing opponent robots.")
-    default_map = pkg_resources.resource_filename('rgkit', 'maps/default.py')
+    default_map = str(resources.files(rgkit).joinpath('maps/default.py'))
     parser.add_argument("-m", "--map",
                         help="User-specified map file.",
                         default=default_map)
